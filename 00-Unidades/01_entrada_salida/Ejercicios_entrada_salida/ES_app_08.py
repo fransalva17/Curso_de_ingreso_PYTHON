@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         self.txt_operador_a_int=int(txt_operador_A)
         txt_operador_B=self.txt_operador_b.get()
         self.txt_operador_b_int=int(txt_operador_B)
-        division=self.txt_operador_a_int / self.txt_operador_b_int
+        division=self.txt_operador_a_int % self.txt_operador_b_int
         saludo="el resto de dividir {0} por {1} es: {2}".format(self.txt_operador_a_int,self.txt_operador_b_int,division)
         alert("división",saludo)
         
