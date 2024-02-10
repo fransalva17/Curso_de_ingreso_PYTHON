@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: franco
+apellido: salvatierra
 ---
 TP: ES_Camioneros
 ---
@@ -14,9 +14,14 @@ Enunciado:
 
 3.	Para el departamento de logística:
 
-	A.	Es necesario saber la cantidad camiones que harian falta para transportar los materiales que se utilizarán para la construcción de un edificio. Para ello, se ingresa la cantidad de toneladas necesarias de materiales a transportar. El programa deberá informar la cantidad de camiones, sabiendo que cada uno de ellos puede transportar por viaje 3500kg
+	A.	Es necesario saber la cantidad camiones que harian falta para transportar los materiales que se utilizarán 
+    para la construcción de un edificio. Para ello, se ingresa la cantidad de toneladas necesarias de materiales a 
+    transportar. El programa deberá informar la cantidad de camiones, sabiendo que cada uno de ellos puede transportar
+    por viaje 3500kg
 
-    B.	A partir del ingreso de la cantidad de kilómetros que tiene que recorrer estos camiones para llegar al destino de la obra, necesitamos que el programa informe cual es el tiempo (en horas) que tardará cada uno de los camiones, si sabemos que cada camión puede ir a una velocidad máxima y constante de 90 km/h  
+    B.	A partir del ingreso de la cantidad de kilómetros que tiene que recorrer estos camiones para llegar al destino 
+    de la obra, necesitamos que el programa informe cual es el tiempo (en horas) que tardará cada uno de los camiones, 
+    si sabemos que cada camión puede ir a una velocidad máxima y constante de 90 km/h  
 
 '''
 
@@ -45,11 +50,20 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada = customtkinter.CTkButton(master=self, text="Calcular tiempo de llegada", command=self.btn_tiempo_llegada_on_click)
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
-    def btn_cantidad_camiones_on_click(self):
-        pass
+    def btn_cantidad_camiones_on_click(self):      #3.5 ton = 1 camion
+        txt_toneladas = self.txt_toneladas.get()   
+        toneladas = float(txt_toneladas)
+        kg_camion = float(3.5)
+        camiones = toneladas / kg_camion
+        alert("cantidad camiones", camiones)
 
-    def btn_tiempo_llegada_on_click(self):
-        pass
+    def btn_tiempo_llegada_on_click(self):                #90 km/h cada camion
+        txt_kilometros = self.txt_kilometros.get()         
+        kilometros = float(txt_kilometros)
+        velocidad = int(90)
+        horas = kilometros / velocidad
+        alert("horas estimadas", horas)
+
     
     
 if __name__ == "__main__":

@@ -49,13 +49,21 @@ class App(customtkinter.CTk):
     
     def btn_convertir_c_f_on_click(self):
         txt_temperatura_c = self.txt_temperatura_c.get()
-        temperatura_cent = float(txt_temperatura_c)
-        
-        conversion_1 = ((0 °C × 9/5) + 32 = 32 °F)
-        alert("conversion",conversion_1)              
+        temperatura_c = float(txt_temperatura_c)
+        #formula = (0 °F − 32) × 5/9 
+
+        conversion = (temperatura_c* 9/5) + 32 
+        alert("CLIMA", "La temperatura" + str(temperatura_c) +"°C paso a" + str(conversion) + "°F")   
 
     def btn_convertir_f_c_on_click(self):
-        pass
+        txt_temperatura_f = self.txt_temperatura_f.get()
+        temperatura_f = float(txt_temperatura_f)
+        #(0 °C × 9/5) + 32 = 32 °F       
+        
+        conversion = (temperatura_f - 32) * 5/9   
+        alert("CLIMA", "La temperatura" + str(temperatura_f) + "°F paso a" + str(conversion) + "°C") 
+       
+
     
     
 if __name__ == "__main__":
