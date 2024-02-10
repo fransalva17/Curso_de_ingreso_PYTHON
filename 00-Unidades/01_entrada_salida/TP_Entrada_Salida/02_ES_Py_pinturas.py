@@ -60,9 +60,8 @@ class App(customtkinter.CTk):
         temperatura_f = float(txt_temperatura_f)
         #(0 °C × 9/5) + 32 = 32 °F       
         
-        conversion = (temperatura_f - 32) * 5/9   
-        alert("CLIMA", "La temperatura" + str(temperatura_f) + "°F paso a" + str(conversion) + "°C") 
-       
+        conversion = round((temperatura_f - 32) * 5/9,2)
+        alert("CLIMA", "La temperatura" + str(temperatura_f) + "°F paso a" + str(conversion) + "°C")  
 
     
     
