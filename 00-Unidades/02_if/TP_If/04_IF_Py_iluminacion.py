@@ -65,7 +65,7 @@ class App(customtkinter.CTk):
             subtotal = (cantidad * 800 * 0.15)
         elif cantidad == 3 and marca == "FelipeLamparas" : 
             subtotal = (cantidad * 800 * 0.10)
-        else :
+        elif cantidad == 3:
             subtotal = (cantidad * 800 * 0.05) 
 
        
