@@ -49,7 +49,6 @@ class App(customtkinter.CTk):
         marca = self.combobox_marca.get()
         combobox_cantidad = self.combobox_cantidad.get()
         cantidad = int(combobox_cantidad)
-        mensaje = " "
     
 
         if cantidad >= 6 :
@@ -67,17 +66,16 @@ class App(customtkinter.CTk):
         elif cantidad == 3 and marca == "FelipeLamparas" : 
             subtotal = (cantidad * 800 * 0.10)
         else :
-            subtotal = (cantidad * 800 * 0.5) 
+            subtotal = (cantidad * 800 * 0.05) 
 
        
         if subtotal > int(4000) :
-            mensaje = (cantidad * 800 * 0.5)
-        else : 
-            mensaje = subtotal
+            total = (subtotal - (subtotal * 0.05))
+        else :
+            total = (cantidad * 800) - int(subtotal)
 
 
-        alert("A PAGAR", subtotal)
-
+        alert("A PAGAR", "El total a pagar es " + "$"+ str(total))
 
 
 
