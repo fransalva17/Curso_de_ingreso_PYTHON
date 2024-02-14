@@ -49,27 +49,34 @@ class App(customtkinter.CTk):
         marca = self.combobox_marca.get()
         combobox_cantidad = self.combobox_cantidad.get()
         cantidad = int(combobox_cantidad)
-        precio = (cantidad * int(800))    
+        mensaje = " "
     
 
         if cantidad >= 6 :
-            mensaje = precio - (precio * float(0.5))
+            subtotal = (cantidad * 800 * 0.5)
         elif cantidad == 5 and marca == "Argentinaluz" : 
-            mensaje = precio - (precio * float(0.4))
+            subtotal = (cantidad * 800 * 0.4)
         elif cantidad == 5 :
-            mensaje = precio - (precio * float(0.3))  
-        elif cantidad == 4 and marca == "Argentinaluz" or "FelipeLamparas" :
-            mensaje = precio - (precio * float(0.25))
+            subtotal = (cantidad * 800 * 0.3)   
+        elif cantidad == 4 and (marca == "Argentinaluz" or marca == "FelipeLamparas") :
+            subtotal = (cantidad * 800 * 0.25)
         elif cantidad == 4 : 
-            mensaje = precio - (precio * float(0.2))
+            subtotal = (cantidad * 800 * 0.2)
         elif cantidad == 3 and marca == "Argentinaluz" : 
-            mensaje = precio - (precio * float(0.15))
+            subtotal = (cantidad * 800 * 0.15)
         elif cantidad == 3 and marca == "FelipeLamparas" : 
-            mensaje = precio - (precio * float(0.10))
-        elif mensaje > int(4000) :
-            mensaje = precio - (precio * float(0.5))
+            subtotal = (cantidad * 800 * 0.10)
+        else :
+            subtotal = (cantidad * 800 * 0.5) 
 
-        alert("A PAGAR", mensaje)
+       
+        if subtotal > int(4000) :
+            mensaje = (cantidad * 800 * 0.5)
+        else : 
+            mensaje = subtotal
+
+
+        alert("A PAGAR", subtotal)
 
 
 
