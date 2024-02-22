@@ -5,13 +5,14 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: franco
+apellido: salvatierra
 ---
 TP: While_validaciones_rising_btl
 ---
 Enunciado:
-Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
+Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos 
+validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
 Los datos requeridos son los siguientes:
@@ -41,9 +42,8 @@ class App(customtkinter.CTk):
 
         self.label2 = customtkinter.CTkLabel(master=self, text="Estado")
         self.label2.grid(row=2, column=0, padx=20, pady=10)
-        self.combobox_tipo = customtkinter.CTkComboBox(
-            master=self, values=["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"])
-        self.combobox_tipo.grid(row=2, column=1, padx=20, pady=10)
+        self.txt_tipo = customtkinter.CTkEntry(master=self)
+        self.txt_tipo.grid(row=2, column=1, padx=20, pady=10)
 
         self.label3 = customtkinter.CTkLabel(master=self, text="Legajo")
         self.label3.grid(row=3, column=0, padx=20, pady=10)
@@ -55,7 +55,47 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt ("Rising BTL", "Ingrese su apellido")
+        edad = prompt ("Rising BTL", "Ingrese su edad")
+        edad = int(edad)
+        estado = prompt ("Rising BTL", "Ingrese su estado civil")
+        estados = "Soltero", "soltera", "Casado", "Casada", "Divorciado", "Divorciada", "Viudo", "Viuda"
+        legajo = prompt ("Rising BTL", "Ingrese su legajo")
+        legajo = int(legajo)
+        while apellido == None or apellido == '' :
+             apellido = prompt ("Rising BTL", "Reingrese su apellido")
+        while edad < 18 or edad > 90 or edad == None or edad == '' :
+             edad = prompt ("Rising BTL", "Reingrese su edad")
+             edad = int(edad)
+        while estado != "soltero" and estado != "soltera" and estado != "casado" and estado != "casada" and estado != "divorciado" and estado != "divorciada" and estado != "viudo" and estado != "viuda":
+             estado = prompt ("Rising BTL", "Reingrese su estado civil")
+        while legajo < 1000 or legajo > 9999 or legajo == None or legajo == '':
+            legajo = prompt ("Rising BTL", "Reingrese su legajo")
+            legajo = int(legajo)
+        
+        if apellido and edad and estado and legajo == True : 
+            alert("Rising BTL", "Datos invalidos")
+        else :
+            alert("Rising BTL", "Datos validos")
+                 
+            
+
+
+
+        
+        
+        
+        self.txt_apellido.delete(0,tkinter.END)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, tkinter.END)
+        self.txt_edad.insert(0, edad)
+        self.txt_tipo.delete(0, tkinter.END)
+        self.txt_tipo.insert(0, estado)
+        self.txt_legajo.delete(0, tkinter.END)
+        self.txt_legajo.insert(0, legajo)
+            
+                       
+        
 
 
 if __name__ == "__main__":

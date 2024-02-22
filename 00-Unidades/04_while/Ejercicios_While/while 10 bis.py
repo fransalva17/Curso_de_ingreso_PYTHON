@@ -20,7 +20,7 @@ Luego calcular:
     D. Cantidad de números negativos ingresados
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
-
+    
 Informar los resultados mediante alert()
 
 '''
@@ -83,3 +83,4 @@ if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
