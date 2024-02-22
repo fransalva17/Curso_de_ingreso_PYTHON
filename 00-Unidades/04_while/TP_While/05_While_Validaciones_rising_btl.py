@@ -59,7 +59,6 @@ class App(customtkinter.CTk):
         edad = prompt ("Rising BTL", "Ingrese su edad")
         edad = int(edad)
         estado = prompt ("Rising BTL", "Ingrese su estado civil")
-        estados = "Soltero", "soltera", "Casado", "Casada", "Divorciado", "Divorciada", "Viudo", "Viuda"
         legajo = prompt ("Rising BTL", "Ingrese su legajo")
         legajo = int(legajo)
         while apellido == None or apellido == '' :
@@ -73,9 +72,7 @@ class App(customtkinter.CTk):
             legajo = prompt ("Rising BTL", "Reingrese su legajo")
             legajo = int(legajo)
         
-        if apellido and edad and estado and legajo == True : 
-            alert("Rising BTL", "Datos invalidos")
-        else :
+        if apellido and edad and estado and legajo != True :
             alert("Rising BTL", "Datos validos")
                  
             
